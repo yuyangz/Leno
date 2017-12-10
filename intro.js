@@ -29,16 +29,32 @@ var addElementCallback = function(e) {
 var addElement = document.getElementById("addElement");
 addElement.addEventListener("click", addElementCallback);
 
-//Changes the heading based on the parameter index
-var headCallback = function(ind) {
+//Changes the heading
+var headCallback = function(e) {
     var head = document.getElementById("h");
-    head.innerHTML = "item " + ind;
+    head.innerHTML = this.innerHTML;
 };
 
-var splitlist = document.getElementsByTagName("LI");
+//Reverts heading back to "Hello World!"
+var oldCallback = function(e) {
+    var head = document.getElementById("h");
+}
 
-//Only thing stopping this from working is the index mouseover knows(?)
-list.addEventListener("mouseover", headCallback(index));
+//Removes a list element
+var removeCallback = function(e) {
+    this.remove();
+}
 
-//mouseover
-//mouseout
+var splitList = document.getElementsByTagName("LI");
+
+//Obtains individual elements from list
+for (i = 0;i < splitList.length; i++){
+    //Modifies heading when the mouse is over the element of the list
+    splitList[i].addEventListener("mouseover", headCallback);
+    //Removes the element of the list upon clicking
+    splitList[i].addEventListener("click",removeCallback);
+}
+//Reverts heading when the mouse no longer hovers over the list
+list.addEventListener("mouseout", oldCallback);
+
+
