@@ -40,6 +40,7 @@ var headCallback = function(e) {
 //Reverts heading back to "Hello World!"
 var oldCallback = function(e) {
     var head = document.getElementById("h");
+    head.innerHTML = "Hello World!";
 }
 
 //Removes a list element
