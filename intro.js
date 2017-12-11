@@ -13,9 +13,11 @@ var index = 8
 
 //Adds an element to the list
 var addList = function(){
-    var ele = document.createElement("LI");
+    var ele = document.createElement("LI"); 
+    ele.addEventListener("mouseover", headCallback);
+    ele.addEventListener("click",removeCallback);
     //var len = splitlist.length;
-    ele.innerHTML = "item " + index;
+    ele.innerHTML = "item " + (index);
     list.appendChild(ele);
     index++;
 };
