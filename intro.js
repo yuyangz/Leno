@@ -60,4 +60,42 @@ for (i = 0;i < splitList.length; i++){
 //Reverts heading when the mouse no longer hovers over the list
 list.addEventListener("mouseout", oldCallback);
 
+var fibList = document.getElementById("fibList");
+
+
+
+var fib = function(n) {
+    var list = document.getElementsByTagName("LI");
+    console.log(list);
+    if (n == 0)
+        return 0;
+    if(n <= 2){
+        return 1;
+    }
+    else{
+    //    console.log(list[indexFib-1]);
+    //    console.log(list[indexFib-1].slice(10))
+    //    return list[indexFib-1].slice(10) + list[indexFib-2].slice(10)
+        return fib(n-1) + fib(n-2);
+    }
+}
+
+var indexFib = 1;
+
+var addFibList = function(){
+ var ele = document.createElement("LI");
+    ele.innerHTML = "Fib of " + indexFib + ": "+ fib(indexFib);
+    console.log(fib(indexFib));
+    fibList.appendChild(ele);
+    indexFib++;
+}
+
+var fibonacciCallback = function(e){
+   console.log("\n\nNow adding an element to the fib list");
+   addFibList();
+
+}
+
+var fibonacci = document.getElementById("fibonacci");
+fibonacci.addEventListener("click", fibonacciCallback);
 
