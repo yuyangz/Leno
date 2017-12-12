@@ -61,8 +61,10 @@ for (i = 0;i < splitList.length; i++){
 list.addEventListener("mouseout", oldCallback);
 
 //=============Fibonacci================
+//Fibonacci list in intro.html
 var fibList = document.getElementById("fibList");
 
+//function for fionbacci sequence
 var fib = function(n) {
     var list = document.getElementsByClassName("fibonacci");
     console.log(list);
@@ -78,8 +80,10 @@ var fib = function(n) {
     }
 }
 
+//starting number
 var indexFib = 1;
 
+//adds on number to list
 var addFibList = function(){
  var ele = document.createElement("LI");
     ele.innerHTML = "Fib of " + indexFib + ": "+ fib(indexFib);
@@ -97,14 +101,18 @@ var fibonacci = document.getElementById("fibonacci");
 fibonacci.addEventListener("click", fibonacciCallback);
 
 //==============Triangular Numbers==================
+//Triangular list in html
 var triList = document.getElementById("triList");
 
+//functionf or triangular
 var tri = function(n) {
     return (Math.pow(n,2)+n)/2;
 }
 
+//starting number
 var indexTri = 1;
 
+//adds number to list
 var addTriList = function(){
  var ele = document.createElement("LI");
     ele.innerHTML = "Triangular number of " + indexTri + ": "+ tri(indexTri);
