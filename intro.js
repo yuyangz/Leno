@@ -60,12 +60,11 @@ for (i = 0;i < splitList.length; i++){
 //Reverts heading when the mouse no longer hovers over the list
 list.addEventListener("mouseout", oldCallback);
 
+//=============Fibonacci================
 var fibList = document.getElementById("fibList");
 
-
-
 var fib = function(n) {
-    var list = document.getElementsByTagName("LI");
+    var list = document.getElementsByClassName("fibonacci");
     console.log(list);
     if (n == 0)
         return 0;
@@ -73,9 +72,8 @@ var fib = function(n) {
         return 1;
     }
     else{
-    //    console.log(list[indexFib-1]);
     //    console.log(list[indexFib-1].slice(10))
-    //    return list[indexFib-1].slice(10) + list[indexFib-2].slice(10)
+        //return list[indexFib-1].slice(10) + list[indexFib-2].slice(10)
         return fib(n-1) + fib(n-2);
     }
 }
@@ -95,7 +93,30 @@ var fibonacciCallback = function(e){
    addFibList();
 
 }
-
 var fibonacci = document.getElementById("fibonacci");
 fibonacci.addEventListener("click", fibonacciCallback);
 
+//==============Triangular Numbers==================
+var triList = document.getElementById("triList");
+
+var tri = function(n) {
+    return (Math.pow(n,2)+n)/2;
+}
+
+var indexTri = 1;
+
+var addTriList = function(){
+ var ele = document.createElement("LI");
+    ele.innerHTML = "Triangular number of " + indexTri + ": "+ tri(indexTri);
+    console.log(tri(indexTri));
+    triList.appendChild(ele);
+    indexTri++;
+}
+
+var triangleCallback = function(e){
+   console.log("\n\nNow adding an element to the list of triangular numbers");
+   addTriList();
+
+}
+var triangular = document.getElementById("triangle");
+triangular.addEventListener("click", triangleCallback);
